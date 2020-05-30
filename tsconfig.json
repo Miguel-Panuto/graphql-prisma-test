@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,                 
+    "forceConsistentCasingInFileNames": true  
+  }
+}

@@ -1,11 +1,19 @@
-import { GraphQLServer } from 'graphql-yoga';
-import path from 'path';
+import express from 'express';
+import graphqlHTTP from 'express-graphql';
 
-import resolvers from './resolvers';
+import schema from './schema';
 
-const server = new GraphQLServer({
-    typeDefs: path.resolve(__dirname, 'schema.graphql'),
-    resolvers: resolvers
-});
+const port = process.env.PORT || 3333
 
-server.start();
+const app = express();
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true
+  })
+);
+
+app.listen(port, () =>
+  console.log('Server running on ' + port)
+);
